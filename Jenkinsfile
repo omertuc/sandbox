@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Sandbox') {
             steps {
-                sh '''GIT_SSH_COMMAND="ssh -i '${GITLAB_CREDS}' -v" git clone git@gitlab.cee.redhat.com:service/app-interface.git'''
+                sh '''GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=accept-new -i '${GITLAB_CREDS}' -v" git clone git@gitlab.cee.redhat.com:service/app-interface.git'''
             }
         }
     }
