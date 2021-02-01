@@ -7,13 +7,6 @@ pipeline {
     stages {
         stage('Sandbox') {
             steps {
-                sh '''cat > ~/.ssh/id_rsa << EOF
-${GITLAB_CREDS}
-EOF'''
-                sh "chmod 600 ~/.ssh/id_rsa"
-                sh "ls -lah ~/.ssh/id_rsa"
-                sh "cat ~/.ssh/id_rsa"
-                sh "ping -c 1 gitlab.cee.redhat.com"
                 sh '''GIT_SSH_COMMAND="ssh -i '${GITLAB_CREDS}' -v" git clone git@gitlab.cee.redhat.com:service/app-interface.git'''
             }
         }
