@@ -14,7 +14,7 @@ EOF'''
                 sh "ls -lah ~/.ssh/id_rsa"
                 sh "cat ~/.ssh/id_rsa"
                 sh "ping -c 1 gitlab.cee.redhat.com"
-                sh '''GIT_SSH_COMMAND="ssh -v" git clone git@gitlab.cee.redhat.com:service/app-interface.git'''
+                sh '''GIT_SSH_COMMAND="ssh -v -i ${GITLAB_CREDS}" git clone git@gitlab.cee.redhat.com:service/app-interface.git'''
             }
         }
     }
