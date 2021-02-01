@@ -11,6 +11,8 @@ pipeline {
 ${GITLAB_CREDS}
 EOF'''
                 sh "chmod 600 ~/.ssh/id_rsa"
+                sh "ls -lah ~/.ssh/id_rsa"
+                sh "ping -c 1 gitlab.cee.redhat.com"
                 sh "git clone git@gitlab.cee.redhat.com:service/app-interface.git"
             }
         }
